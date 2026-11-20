@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The timeline, design 3 of 5, Pipeline demo</title>
+<meta name="description" content="How the Sovereign Website pipeline turns one request into a site, with this site as the worked example.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #fbfaf6; --fg: #1d1b18; --muted: #57524a; --accent: #9a2b1c; --line: #d8d1c4; --soft: #f1ece2;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: 17rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #151412; --fg: #efeadf; --muted: #b9b1a3; --accent: #f29a84; --line: #3d3933; --soft: #1f1d1a; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 1.125rem/1.65 var(--serif); overflow-wrap: break-word; }
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.skip { position: absolute; left: 1rem; top: -4rem; background: var(--fg); color: var(--bg); padding: .5rem .8rem; z-index: 10; }
+.skip:focus { top: 1rem; }
+.wrap { max-width: 66rem; margin: 0 auto; padding: 0 1rem; }
+
+.family { font: .8125rem/1.4 var(--sans); border-bottom: 1px solid var(--line); }
+.family ul { list-style: none; margin: 0 auto; padding: .1rem 1rem; display: flex; flex-wrap: wrap; gap: 0 1.1rem; max-width: 66rem; }
+.family a { color: var(--muted); text-decoration: none; display: inline-block; padding: .3rem 0; min-height: 24px; }
+.family a:hover, .family a:focus-visible { color: var(--fg); text-decoration: underline; }
+.family .family-sep { margin-left: auto; }
+@media (max-width: 40rem) { .family .family-sep { margin-left: 0; } }
+
+.site-header { border-bottom: 3px double var(--fg); }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1.5rem; padding-top: 1rem; padding-bottom: .8rem; }
+.brand { font: italic 700 1.35rem/1.2 var(--serif); color: var(--fg); text-decoration: none; display: inline-flex; align-items: center; gap: .55rem; }
+.brand svg { width: 1.35rem; height: 1.35rem; color: var(--accent); }
+nav.pages { display: flex; flex-wrap: wrap; gap: 0 1.2rem; font: .9rem/1.4 var(--sans); }
+nav.pages a { color: var(--muted); text-decoration: none; padding: .3rem 0; display: inline-block; }
+nav.pages a:hover { color: var(--fg); text-decoration: underline; }
+nav.pages a[aria-current="page"] { color: var(--fg); font-weight: 600; }
+
+.switcher { font: .8125rem/1.4 var(--sans); color: var(--muted); border-bottom: 1px solid var(--line); }
+
+.switcher .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .45rem; padding-top: .45rem; padding-bottom: .45rem; }
+.switcher a { display: inline-flex; align-items: center; justify-content: center; min-height: 28px; text-decoration: none; }
+.switcher .switcher-n { min-width: 28px; padding: 0 .3rem; font-variant-numeric: tabular-nums; }
+.switcher .switcher-all, .switcher .switcher-live { padding: 0 .4rem; text-decoration: underline; text-underline-offset: .18em; }
+.switcher .switcher-all { margin-left: .4rem; }
+
+.switcher a { color: var(--muted); border-radius: 50%; }
+.switcher .switcher-all, .switcher .switcher-live { border-radius: 0; }
+.switcher a:hover { color: var(--fg); }
+.switcher a[aria-current="page"] { background: var(--fg); color: var(--bg); font-weight: 700; }
+
+main.wrap { padding-top: clamp(2rem, 7vw, 4.5rem); padding-bottom: 3.5rem; }
+.lede { max-width: 50rem; }
+.mark { font: 600 .78rem/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0 0 .8rem; }
+h1 { font: 400 clamp(2.6rem, 9vw, 5.4rem)/1 var(--serif); letter-spacing: -.02em; margin: 0 0 1.2rem; }
+.intro { font-size: clamp(1.15rem, 2.6vw, 1.4rem); line-height: 1.55; color: var(--muted); font-style: italic; margin: 0; }
+h2 { font: 700 clamp(1.5rem, 3.8vw, 2.1rem)/1.15 var(--serif); margin: 0 0 1rem; }
+p { margin: 0 0 1rem; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .82em; background: var(--soft); padding: .05rem .3rem; border-radius: 3px; overflow-wrap: anywhere; }
+
+/* Sections hang off a left spine column on wide screens. */
+section { margin-top: clamp(2.8rem, 7vw, 4.5rem); }
+section > h2, section > p { margin-left: 0; }
+@media (min-width: 52rem) {
+  section > h2, section > p { margin-left: calc(var(--gutter) + 2.5rem); max-width: 40rem; }
+}
+
+/* The timeline as the spine: big times on the left, a rule, the event on the right. */
+.table-wrap { margin: 1.4rem 0 0; }
+.table-wrap table, .table-wrap tbody, .table-wrap tr, .table-wrap th, .table-wrap td { display: block; }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap tr { position: relative; border-left: 2px solid var(--fg); padding: 0 0 1.8rem 1.6rem; }
+.table-wrap tr:last-child { padding-bottom: .4rem; }
+.table-wrap tr::before { content: ""; position: absolute; left: -.5rem; top: .55rem; width: .9rem; height: .9rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg); }
+.table-wrap tr.key::before { background: var(--accent); border-color: var(--accent); }
+.table-wrap tr:first-child::before { display: none; }
+.table-wrap th { font: 600 .75rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0; }
+.table-wrap td { padding: 0; text-align: left; }
+.table-wrap td:first-child { font: 400 1.6rem/1.1 var(--serif); font-variant-numeric: lining-nums tabular-nums; color: var(--muted); margin-bottom: .35rem; }
+.table-wrap tr.key td:first-child { font-size: clamp(2.4rem, 11vw, 3.7rem); color: var(--fg); letter-spacing: -.01em; white-space: nowrap; }
+.table-wrap td:first-child .q { font: italic 1rem/1 var(--serif); color: var(--muted); }
+.table-wrap td:last-child { font-size: 1.15rem; max-width: 34rem; }
+@media (min-width: 52rem) {
+  .table-wrap tr { display: grid; grid-template-columns: var(--gutter) 1fr; column-gap: 2.5rem; border-left: 0; padding: 0; }
+  .table-wrap tr::before { left: calc(var(--gutter) + 1.25rem - .45rem); top: .7rem; }
+  .table-wrap tr.key::before { top: 1.6rem; }
+  .table-wrap th, .table-wrap td { padding-bottom: 2rem; }
+  .table-wrap tr:last-child td { padding-bottom: .5rem; }
+  .table-wrap th:first-child, .table-wrap td:first-child { text-align: right; margin: 0; position: relative; }
+  .table-wrap tr > :first-child::after { content: ""; position: absolute; top: 0; bottom: 0; right: -1.3rem; width: 2px; background: var(--fg); }
+  .table-wrap td:last-child { padding-top: .35rem; }
+  .table-wrap tr.key td:last-child { padding-top: 1.25rem; }
+}
+
+/* The steps hang off the same spine, numbered in the left column. */
+ol.spine { list-style: none; counter-reset: step; padding: 0; margin: 1.2rem 0 0; }
+ol.spine li { counter-increment: step; position: relative; border-left: 2px solid var(--line); padding: 0 0 1.4rem 1.6rem; margin: 0; }
+ol.spine li::before { content: counter(step); display: block; font: italic 400 2rem/1 var(--serif); color: var(--accent); margin-bottom: .3rem; }
+ol.spine li::after { content: ""; position: absolute; left: -.4rem; top: .75rem; width: .7rem; height: .7rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--muted); }
+ol.spine strong { display: block; font-size: 1.2rem; }
+@media (min-width: 52rem) {
+  ol.spine li { display: grid; grid-template-columns: var(--gutter) 1fr; column-gap: 2.5rem; border-left: 0; padding: 0 0 1.6rem; }
+  ol.spine li::before { grid-column: 1; text-align: right; font-size: 2.6rem; margin: 0; border-right: 2px solid var(--line); padding-right: 1.25rem; margin-right: -1.3rem; height: 100%; }
+  ol.spine li::after { left: calc(var(--gutter) + 1.25rem - .35rem); top: .8rem; }
+  ol.spine li > * { grid-column: 2; }
+  ol.spine .text { grid-column: 2; max-width: 40rem; }
+}
+
+.site-footer { border-top: 3px double var(--fg); padding: 1.6rem 0 2.4rem; color: var(--muted); font-size: .95rem; }
+.site-footer p { max-width: 44rem; margin: 0; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</nav>
+<header class="site-header"><div class="wrap"><a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
+<nav class="pages" aria-label="This guide"><a href="../index.html" aria-current="page">How it works</a><a href="../request.html">Asking for a site</a><a href="../after-the-seed.html">After the seed</a></nav></div></header>
+<nav class="switcher" aria-label="Designs of the home page"><div class="wrap"><span class="switcher-label">Design:</span> <a class="switcher-n" href="1.html" aria-label="Design 1, The ticket">1</a> <a class="switcher-n" href="2.html" aria-label="Design 2, The blueprint">2</a> <a class="switcher-n" href="3.html" aria-label="Design 3, The timeline" aria-current="page">3</a> <a class="switcher-n" href="4.html" aria-label="Design 4, The evidence">4</a> <a class="switcher-n" href="5.html" aria-label="Design 5, The poster">5</a> <a class="switcher-all" href="index.html">All five</a> <a class="switcher-live" href="../index.html">Back to the live page</a></div></nav>
+<main id="main" class="wrap">
+<div class="lede">
+<p class="mark">pipeline-demo.sovereignweb.site</p>
+<h1>A site from one request</h1>
+<p class="intro">This site is the worked example of the Sovereign Website pipeline, and its documentation. It was made from one small file, a request, and everything after that was done by the pipeline: a repository, an address, HTTPS, and a first page.</p>
+</div>
+
+<section>
+<h2>This site, as it happened</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Timeline"><table>
+<tr><th>When (UTC, 20 Nov 2026)</th><th>What</th></tr>
+<tr><td><span class="q">about</span> 08:40</td><td>Dinis said yes to pipeline-demo.sovereignwebsite.site.</td></tr>
+<tr class="key"><td>09:14:09</td><td>The request <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__pipeline-demo/site.json">requests/2026-11-20__pipeline-demo</a> reached dev.</td></tr>
+<tr class="key"><td>09:14:52</td><td>Org apply created the repository, 43 seconds later.</td></tr>
+<tr class="key"><td>09:14:59</td><td>Org apply seeded the first four files: this page, its address, the Pages workflow and the agents' rules.</td></tr>
+<tr><td><span class="q">by</span> 10:20</td><td>Served over HTTPS; plain http answers with a permanent redirect.</td></tr>
+</table></div>
+</section>
+
+<section>
+<h2>The path of one request</h2>
+<ol class="spine">
+<li><span class="text"><strong>A request folder.</strong> <code>requests/&lt;date&gt;__&lt;label&gt;/site.json</code> in the <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory">Factory</a> names the site: its label, title, description and kind. It reaches the dev branch only with Dinis Cruz's merge.</span></li>
+<li><span class="text"><strong>Checks.</strong> Every push to dev runs the tests, the policy validation, a leak scan, the signed-commit check and a dry plan of the organisation against the policy.</span></li>
+<li><span class="text"><strong>Org apply.</strong> A push to dev that changes <code>requests/</code> runs Org apply (it also runs every hour). It creates the repository <code>Site__&lt;label&gt;</code> from the site template, with Pages on, the custom domain, the agents' team with push, and two rulesets: main is locked, dev is safe.</span></li>
+<li><span class="text"><strong>DNS apply.</strong> The same push runs DNS apply, which writes a CNAME for <code>&lt;label&gt;.sovereignwebsite.site</code> in Route 53, through a short-lived AWS role and no stored keys.</span></li>
+<li><span class="text"><strong>HTTPS.</strong> GitHub issues a certificate for the address; the hourly Org apply then enforces HTTPS.</span></li>
+<li><span class="text"><strong>Publish.</strong> In the new repository, every push to dev deploys the <code>site/</code> folder to GitHub Pages.</span></li>
+</ol>
+</section>
+
+<section>
+<h2>What the owner holds</h2>
+<p>The site is static files in a repository. Its files, its history and its address can move anywhere, at any time. There is no server code, no cookies and no tracking. The pipeline never deletes: a request removed from the Factory leaves its repository and address in place, to be retired by hand.</p>
+</section>
+
+<section>
+<h2>Who does what</h2>
+<p>Agents do the work and people decide. Each agent signs every commit with its own published key and names its session; the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/policy/abp.json">Agent Behaviour Policy</a> lists what each agent may change, and anything not listed is refused. Changes reach main only when Dinis merges them.</p>
+</section>
+</main>
+<footer class="site-footer"><div class="wrap"><p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
+</body>
+</html>

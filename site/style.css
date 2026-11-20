@@ -85,3 +85,6 @@ td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; color:
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding: 1.6rem 0 2.4rem; color: var(--muted); font-size: .92rem; }
 .site-footer p { max-width: var(--text); margin: 0; }
+
+/* Note linking the five designs of this page. */
+.design-note { font-size: .9rem; color: var(--muted); margin-top: 2.5rem; }

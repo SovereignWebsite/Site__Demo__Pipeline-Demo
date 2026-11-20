@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five designs, Pipeline demo</title>
+<meta name="description" content="Five designs of the home page of the pipeline demo, with the same words on each.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<style>
+.switcher { font-size: .875rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+
+.switcher .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .45rem; padding-top: .45rem; padding-bottom: .45rem; }
+.switcher a { display: inline-flex; align-items: center; justify-content: center; min-height: 28px; text-decoration: none; }
+.switcher .switcher-n { min-width: 28px; padding: 0 .3rem; font-variant-numeric: tabular-nums; }
+.switcher .switcher-all, .switcher .switcher-live { padding: 0 .4rem; text-decoration: underline; text-underline-offset: .18em; }
+.switcher .switcher-all { margin-left: .4rem; }
+
+.switcher a { color: var(--muted); border-radius: 4px; }
+.switcher a:hover { color: var(--fg); }
+.switcher a[aria-current="page"] { background: var(--accent); color: var(--bg); font-weight: 700; }
+
+ol.designs { list-style: none; padding: 0; margin: 1.5rem 0; counter-reset: d; }
+ol.designs li { counter-increment: d; position: relative; padding: .9rem 0 .9rem 3rem; margin: 0; border-bottom: 1px solid var(--line); }
+ol.designs li::before { content: counter(d); position: absolute; left: 0; top: .9rem; width: 2rem; height: 2rem; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+ol.designs a { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; }
+ol.designs p { margin: .2rem 0 0; color: var(--muted); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</nav>
+<header class="site-header"><div class="wrap"><a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
+<nav class="pages" aria-label="This guide"><a href="../index.html">How it works</a><a href="../request.html">Asking for a site</a><a href="../after-the-seed.html">After the seed</a></nav></div></header>
+<nav class="switcher" aria-label="Designs of the home page"><div class="wrap"><span class="switcher-label">Design:</span> <a class="switcher-n" href="1.html" aria-label="Design 1, The ticket">1</a> <a class="switcher-n" href="2.html" aria-label="Design 2, The blueprint">2</a> <a class="switcher-n" href="3.html" aria-label="Design 3, The timeline">3</a> <a class="switcher-n" href="4.html" aria-label="Design 4, The evidence">4</a> <a class="switcher-n" href="5.html" aria-label="Design 5, The poster">5</a> <a class="switcher-all" href="index.html" aria-current="page">All five</a> <a class="switcher-live" href="../index.html">Back to the live page</a></div></nav>
+<main id="main" class="wrap">
+<p class="mark">pipeline-demo.sovereignweb.site</p>
+<h1>Five designs</h1>
+<p>Five designs of the home page, each with the same words.</p>
+<ol class="designs">
+<li><a href="1.html">The ticket</a><p>The live home page as it is now: warm paper, serif headings and numbered steps.</p></li>
+<li><a href="2.html">The blueprint</a><p>Dark blue drawing paper with a faint grid, monospace labels and the six steps drawn as boxes and arrows.</p></li>
+<li><a href="3.html">The timeline</a><p>An editorial page in serif type, with the timestamps set large as the spine and the steps hung off it.</p></li>
+<li><a href="4.html">The evidence</a><p>A terminal view: the request file, the 43 seconds it took to make the repository, and the rest as measured facts.</p></li>
+<li><a href="5.html">The poster</a><p>One strong colour field, one large line, and the three pages of the guide as giant numerals.</p></li>
+</ol>
+<p><a href="../index.html">Back to the live page</a></p>
+</main>
+<footer class="site-footer"><div class="wrap"><p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
+</body>
+</html>
