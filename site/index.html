@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A site from one request</title>
+<title>A site from one request, Pipeline demo</title>
 <meta name="description" content="How the Sovereign Website pipeline turns one request into a site, with this site as the worked example.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,9 +24,10 @@
     <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
   </ul>
 </nav>
-<main id="main">
-<div class="mark">pipeline-demo.sovereignwebsite.site</div>
-<nav class="pages" aria-label="This guide"><a href="index.html" aria-current="page">How it works</a> <a href="request.html">Asking for a site</a> <a href="after-the-seed.html">After the seed</a></nav>
+<header class="site-header"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
+<nav class="pages" aria-label="This guide"><a href="index.html" aria-current="page">How it works</a><a href="request.html">Asking for a site</a><a href="after-the-seed.html">After the seed</a></nav></div></header>
+<main id="main" class="wrap">
+<p class="mark">pipeline-demo.sovereignwebsite.site</p>
 <h1>A site from one request</h1>
 <p>This site is the worked example of the Sovereign Website pipeline, and its documentation. It was made from one small file, a request, and everything after that was done by the pipeline: a repository, an address, HTTPS, and a first page.</p>
 
@@ -39,21 +42,21 @@
 </ol>
 
 <h2>This site, as it happened</h2>
-<table>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Timeline"><table>
 <tr><th>When (UTC, 20 Nov 2026)</th><th>What</th></tr>
 <tr><td>about 08:40</td><td>Dinis said yes to pipeline-demo.sovereignwebsite.site.</td></tr>
 <tr><td>09:14:09</td><td>The request <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__pipeline-demo/site.json">requests/2026-11-20__pipeline-demo</a> reached dev.</td></tr>
 <tr><td>09:14:52</td><td>Org apply created the repository, 43 seconds later.</td></tr>
 <tr><td>09:14:59</td><td>Org apply seeded the first four files: this page, its address, the Pages workflow and the agents' rules.</td></tr>
 <tr><td>by 10:20</td><td>Served over HTTPS; plain http answers with a permanent redirect.</td></tr>
-</table>
+</table></div>
 
 <h2>What the owner holds</h2>
 <p>The site is static files in a repository. Its files, its history and its address can move anywhere, at any time. There is no server code, no cookies and no tracking. The pipeline never deletes: a request removed from the Factory leaves its repository and address in place, to be retired by hand.</p>
 
 <h2>Who does what</h2>
 <p>Agents do the work and people decide. Each agent signs every commit with its own published key and names its session; the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/policy/abp.json">Agent Behaviour Policy</a> lists what each agent may change, and anything not listed is refused. Changes reach main only when Dinis merges them.</p>
-<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</footer>
 </main>
+<footer class="site-footer"><div class="wrap"><p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
 </body>
 </html>
