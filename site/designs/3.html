@@ -116,12 +116,22 @@ ol.spine strong { display: block; font-size: 1.2rem; }
 
 .site-footer { border-top: 3px double var(--fg); padding: 1.6rem 0 2.4rem; color: var(--muted); font-size: .95rem; }
 .site-footer p { max-width: 44rem; margin: 0; }
+/* Family bar folded on phones (Factory fc21653): two copies in the markup, one shown per width. */
+.family .family-narrow{display:none}
+@media (max-width:40rem){
+  .family .family-wide{display:none}
+  .family .family-narrow{display:block}
+  .family summary{cursor:pointer;padding:.3rem 1rem;min-height:24px;color:var(--family-fg,currentColor)}
+  .family summary:hover,.family summary:focus-visible{color:var(--fg,currentColor);text-decoration:underline}
+  .family .family-narrow ul{flex-direction:column;gap:0;padding:0 1rem .4rem}
+  .family .family-sep{margin-left:0}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="family" aria-label="The Sovereign Website family">
-  <ul>
+  <ul class="family-wide">
     <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
     <li><a href="https://sovereignwebsite.org/">Principles</a></li>
     <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
@@ -132,6 +142,20 @@ ol.spine strong { display: block; font-size: 1.2rem; }
     <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
     <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
   </ul>
+  <details class="family-narrow">
+    <summary>Sovereign Website family</summary>
+    <ul>
+      <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+      <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+      <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+      <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+      <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+      <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+      <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+      <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+      <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+    </ul>
+  </details>
 </nav>
 <header class="site-header"><div class="wrap"><a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
 <nav class="pages" aria-label="This guide"><a href="../index.html" aria-current="page">How it works</a><a href="../request.html">Asking for a site</a><a href="../after-the-seed.html">After the seed</a></nav></div></header>
