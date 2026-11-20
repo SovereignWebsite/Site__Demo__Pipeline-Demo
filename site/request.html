@@ -40,6 +40,18 @@
 <tr><td><code>title</code></td><td>At most 80 characters. The first page's heading.</td></tr>
 <tr><td><code>description</code></td><td>At most 200 characters. The first page's summary.</td></tr>
 <tr><td><code>kind</code></td><td><code>demo</code> for an example made by the team, <code>owner</code> for a site that belongs to someone.</td></tr>
+<tr><td><code>group</code></td><td>Optional. The area the site belongs to, from the list below. The address becomes <code>&lt;label&gt;.&lt;group&gt;.sovereignweb.site</code>.</td></tr>
+<tr><td><code>access</code></td><td>Optional. <code>vault</code> for a private site: the public address shows only a holding page, and the site itself is in an encrypted vault opened with its QR code.</td></tr>
+</table>
+<h2>Groups</h2>
+<p>New sites are made on <code>sovereignweb.site</code>, in one of these groups (Dinis Cruz, 20 November 2026; more will be added as we go):</p>
+<table>
+<tr><th>Group</th><th>For</th><th>Example</th></tr>
+<tr><td><code>artist</code></td><td>creative portfolios</td><td><code>&lt;name&gt;.artist.sovereignweb.site</code></td></tr>
+<tr><td><code>cv</code></td><td>career profiles</td><td><code>&lt;name&gt;.cv.sovereignweb.site</code></td></tr>
+<tr><td><code>company</code></td><td>companies</td><td><code>&lt;name&gt;.company.sovereignweb.site</code></td></tr>
+<tr><td><code>organisation</code></td><td>groups that are not companies</td><td><code>&lt;name&gt;.organisation.sovereignweb.site</code></td></tr>
+<tr><td><code>invest</code></td><td>investment firms</td><td><code>&lt;name&gt;.invest.sovereignweb.site</code></td></tr>
 </table>
 <p>No em or en dashes anywhere in a request. The rules are checked by <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/build/requests.mjs">build/requests.mjs</a> and the tests before anything is made.</p>
 
@@ -52,6 +64,7 @@
 <li>The sites agent drafts the label, title, description and kind, and Dinis says yes to that site.</li>
 <li>The request goes to the Factory's agent, which commits it, signed, to dev.</li>
 <li>The pipeline does the rest, as on <a href="index.html">How it works</a>.</li>
+<li>For a private site, the site's own agent seals the vault and gives the QR code only to the person asking; no other agent or site sees it.</li>
 </ol>
 <footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</footer>
 </main>
