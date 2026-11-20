@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>After the seed</title>
+<meta name="description" content="What happens to a site after the pipeline seeds it: the build loop.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/" aria-current="true">Hosted</a></li>
+    <li><a href="https://hub.sovereignwebsite.site/">Hub</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</nav>
+<main id="main">
+<div class="mark">pipeline-demo.sovereignwebsite.site</div>
+<nav class="pages" aria-label="This guide"><a href="index.html">How it works</a> <a href="request.html">Asking for a site</a> <a href="after-the-seed.html" aria-current="page">After the seed</a></nav>
+<h1>After the seed</h1>
+<p>The pipeline gives every site a seed: one honest page, an address and HTTPS. The seed is a start, not the site. The owner can always add more, and that is the point.</p>
+
+<h2>The loop</h2>
+<p>Each site goes round the same loop (Dinis Cruz, 20 November 2026):</p>
+<ol class="steps">
+<li><strong>Build the site.</strong> Real content from the owner's own material, as static files in <code>site/</code>.</li>
+<li><strong>Make everything work.</strong> Every page, link, image and video, on a phone and on a desktop, in light and dark.</li>
+<li><strong>Start the site's agent.</strong> An agent that keeps the site and answers its owner.</li>
+<li><strong>The design agent.</strong> A pass whose only job is to make the site look good.</li>
+</ol>
+<p>Then round again, as the owner adds more.</p>
+
+<h2>Assets</h2>
+<p>A site about a person or a project begins with a map of what exists: pictures, films, text, social posts. Each item is noted with where it is, who owns it and whether it may be used. Photographs belong to their photographers until they agree; anything not cleared stays out of the site.</p>
+
+<h2>The rules every site keeps</h2>
+<ul>
+<li>Static files only: no server code, no cookies, no tracking.</li>
+<li>Commits to dev only, each signed by its agent's published key, with its <code>Agent:</code> and <code>Claude-Session:</code> trailers.</li>
+<li>No private person named without their consent. No invented fact, price or customer.</li>
+<li>Plain British English. Text under CC BY 4.0.</li>
+</ul>
+<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</footer>
+</main>
+</body>
+</html>

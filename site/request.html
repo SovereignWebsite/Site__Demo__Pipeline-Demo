@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asking for a site</title>
+<meta name="description" content="The request file that starts a hosted site: its fields and rules.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul>
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/" aria-current="true">Hosted</a></li>
+    <li><a href="https://hub.sovereignwebsite.site/">Hub</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+</nav>
+<main id="main">
+<div class="mark">pipeline-demo.sovereignwebsite.site</div>
+<nav class="pages" aria-label="This guide"><a href="index.html">How it works</a> <a href="request.html" aria-current="page">Asking for a site</a> <a href="after-the-seed.html">After the seed</a></nav>
+<h1>Asking for a site</h1>
+<p>A site starts as one file. This is the request that made this site:</p>
+<pre>{
+  "label": "pipeline-demo",
+  "title": "A site from one request",
+  "description": "Made by the Sovereign Website pipeline from one request folder.",
+  "kind": "demo"
+}</pre>
+
+<h2>The fields</h2>
+<table>
+<tr><th>Field</th><th>Rule</th></tr>
+<tr><td><code>label</code></td><td>Lower-case letters, digits and hyphens, at most 40 characters, matching the folder name. It becomes the address <code>&lt;label&gt;.sovereignwebsite.site</code> and the repository <code>Site__&lt;label&gt;</code>. Reserved: www, hub, vault, api, admin, mail, factory.</td></tr>
+<tr><td><code>title</code></td><td>At most 80 characters. The first page's heading.</td></tr>
+<tr><td><code>description</code></td><td>At most 200 characters. The first page's summary.</td></tr>
+<tr><td><code>kind</code></td><td><code>demo</code> for an example made by the team, <code>owner</code> for a site that belongs to someone.</td></tr>
+</table>
+<p>No em or en dashes anywhere in a request. The rules are checked by <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/build/requests.mjs">build/requests.mjs</a> and the tests before anything is made.</p>
+
+<h2>People and privacy</h2>
+<p>A request names no private person. The Factory is a public repository, so an owner's details stay out of it until they agree. A site about a person is built only with that person's consent.</p>
+
+<h2>How a request is made today</h2>
+<ol class="steps">
+<li>Dinis asks for a site, in a session with the team.</li>
+<li>The sites agent drafts the label, title, description and kind, and Dinis says yes to that site.</li>
+<li>The request goes to the Factory's agent, which commits it, signed, to dev.</li>
+<li>The pipeline does the rest, as on <a href="index.html">How it works</a>.</li>
+</ol>
+<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
+@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:44rem;margin:0 auto;padding:10vh 1rem 4rem}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem}
+.mark{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.1;margin:.4rem 0 1rem}
+p{color:var(--muted);margin:0 0 1rem}a{color:var(--accent)}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.family{font-size:.8rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
+.family ul{list-style:none;margin:0 auto;padding:.35rem 1rem;display:flex;flex-wrap:wrap;gap:.25rem .9rem;max-width:72rem}
+.family a{color:inherit;opacity:.8;text-decoration:none}.family a:hover,.family a:focus-visible{opacity:1;text-decoration:underline}
+.family .family-sep{margin-left:auto}@media (max-width:40rem){.family .family-sep{margin-left:0}}
+nav.pages{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin:0 0 2rem;font-size:.95rem}
+nav.pages a[aria-current]{font-weight:600;text-decoration:none;color:var(--fg)}
+h2{font-size:1.35rem;margin:2.2rem 0 .6rem}h3{font-size:1.05rem;margin:1.4rem 0 .4rem}
+li{color:var(--muted);margin:.2rem 0}strong{color:var(--fg)}
+code,pre{font:.85em/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(127,127,127,.1);border-radius:4px}
+code{padding:.1em .3em}pre{padding:.9rem 1rem;overflow-x:auto;color:var(--fg)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin:0 0 1rem;display:block;overflow-x:auto}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--fg)}td{color:var(--muted)}
+ol.steps{padding-left:1.3rem}ol.steps li{margin:.5rem 0}
