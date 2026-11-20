@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Asking for a site, Pipeline demo</title>
 <meta name="description" content="The request file that starts a hosted site: its fields and rules.">
-<link rel="canonical" href="https://pipeline-demo.sovereignweb.site/request.html">
+<link rel="canonical" href="https://pipeline-demo.demo.sovereignweb.site/request.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pipeline demo">
 <meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://pipeline-demo.sovereignweb.site/request.html">
+<meta property="og:url" content="https://pipeline-demo.demo.sovereignweb.site/request.html">
 <meta property="og:title" content="Asking for a site, Pipeline demo">
 <meta property="og:description" content="The request file that starts a hosted site: its fields and rules.">
-<meta property="og:image" content="https://pipeline-demo.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image" content="https://pipeline-demo.demo.sovereignweb.site/assets/share/card-1200x630.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Asking for a site, Pipeline demo">
 <meta name="twitter:description" content="The request file that starts a hosted site: its fields and rules.">
-<meta name="twitter:image" content="https://pipeline-demo.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta name="twitter:image" content="https://pipeline-demo.demo.sovereignweb.site/assets/share/card-1200x630.jpg">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
@@ -57,7 +57,7 @@
 <header class="site-header"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
 <nav class="pages" aria-label="This guide"><a href="index.html">How it works</a><a href="request.html" aria-current="page">Asking for a site</a><a href="after-the-seed.html">After the seed</a></nav></div></header>
 <main id="main" class="wrap">
-<p class="mark">pipeline-demo.sovereignweb.site</p>
+<p class="mark">pipeline-demo.demo.sovereignweb.site</p>
 <h1>Asking for a site</h1>
 <p>A site starts as one file. This is the request that made this site:</p>
 <pre class="request" tabindex="0" aria-label="The request file, site.json">{
@@ -74,11 +74,11 @@
 <tr><td><code>title</code></td><td>At most 80 characters. The first page's heading.</td></tr>
 <tr><td><code>description</code></td><td>At most 200 characters. The first page's summary.</td></tr>
 <tr><td><code>kind</code></td><td><code>demo</code> for an example made by the team, <code>owner</code> for a site that belongs to someone.</td></tr>
-<tr><td><code>group</code></td><td>Optional. The area the site belongs to, from the list below. The address becomes <code>&lt;label&gt;.&lt;group&gt;.sovereignweb.site</code>.</td></tr>
+<tr><td><code>group</code></td><td>Required. The area the site belongs to, from the list below. The address becomes <code>&lt;label&gt;.&lt;group&gt;.sovereignweb.site</code>.</td></tr>
 <tr><td><code>access</code></td><td>Optional. <code>vault</code> for a private site: the public address shows only a holding page, and the site itself is in an encrypted vault opened with its QR code.</td></tr>
 </table></div>
 <h2>Groups</h2>
-<p>New sites are made on <code>sovereignweb.site</code>, in one of these groups (Dinis Cruz, 20 November 2026; more will be added as we go):</p>
+<p>New sites are made on <code>sovereignweb.site</code>, in one of these groups (Dinis Cruz, 20 November 2026: "everything should have a group"; more will be added as we go; the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/README.md">requests/README.md</a> is the list in force):</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Groups"><table>
 <tr><th>Group</th><th>For</th><th>Example</th></tr>
 <tr><td><code>artist</code></td><td>creative portfolios</td><td><code>&lt;name&gt;.artist.sovereignweb.site</code></td></tr>
@@ -86,6 +86,12 @@
 <tr><td><code>company</code></td><td>companies</td><td><code>&lt;name&gt;.company.sovereignweb.site</code></td></tr>
 <tr><td><code>organisation</code></td><td>groups that are not companies</td><td><code>&lt;name&gt;.organisation.sovereignweb.site</code></td></tr>
 <tr><td><code>invest</code></td><td>investment firms</td><td><code>&lt;name&gt;.invest.sovereignweb.site</code></td></tr>
+<tr><td><code>designer</code></td><td>design portfolios</td><td><code>&lt;name&gt;.designer.sovereignweb.site</code></td></tr>
+<tr><td><code>tool</code></td><td>small useful tools</td><td><code>&lt;name&gt;.tool.sovereignweb.site</code></td></tr>
+<tr><td><code>founder</code></td><td>founders and their ventures</td><td><code>&lt;name&gt;.founder.sovereignweb.site</code></td></tr>
+<tr><td><code>startups</code></td><td>brochure sites for startups, pointing to their own sites</td><td><code>&lt;name&gt;.startups.sovereignweb.site</code></td></tr>
+<tr><td><code>demo</code></td><td>demonstrations of the pipeline and of what a site can do</td><td><code>&lt;name&gt;.demo.sovereignweb.site</code></td></tr>
+<tr><td><code>agents</code></td><td>the Sovereign Website agents' own sites</td><td><code>&lt;name&gt;.agents.sovereignweb.site</code></td></tr>
 </table></div>
 <p>No em or en dashes anywhere in a request. The rules are checked by <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/build/requests.mjs">build/requests.mjs</a> and the tests before anything is made.</p>
 
@@ -102,6 +108,6 @@
 </ol>
 </main>
 <footer class="site-footer"><div class="wrap"><nav class="site-links" aria-label="About this site"><a href="start/">Start here</a> <a href="agents/">Use with your AI</a> <a href="admin/">How this site was made</a></nav>
-<p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__pipeline-demo">github.com/SovereignWebsite/Site__pipeline-demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
+<p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo">github.com/SovereignWebsite/Site__Demo__Pipeline-Demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
 </body>
 </html>

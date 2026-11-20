@@ -2,11 +2,11 @@
 
 > Made by the Sovereign Website pipeline from one request folder.
 
-This file is for AI agents and the people using them. The site is https://pipeline-demo.sovereignweb.site/, static files in the public repository https://github.com/SovereignWebsite/Site__Pipeline-Demo (served from site/ on the dev branch). Pick the section that matches who you are acting for, read it in full, then follow it.
+This file is for AI agents and the people using them. The site is https://pipeline-demo.demo.sovereignweb.site/, static files in the public repository https://github.com/SovereignWebsite/Site__Pipeline-Demo (served from site/ on the dev branch). Pick the section that matches who you are acting for, read it in full, then follow it.
 
 ## If you act for a visitor (read-only)
 
-- Read the site's pages, starting at https://pipeline-demo.sovereignweb.site/.
+- Read the site's pages, starting at https://pipeline-demo.demo.sovereignweb.site/.
 - Answer from what the site says, with a link for each point. When the site does not say something, say so plainly; never fill the gap with a guess.
 - Do not change anything.
 
@@ -19,8 +19,8 @@ This file is for AI agents and the people using them. The site is https://pipeli
 
 ## More
 
-- Use this site with AI: https://pipeline-demo.sovereignweb.site/agents/
-- Start here (who looks after this site): https://pipeline-demo.sovereignweb.site/start/
-- How this site was made: https://pipeline-demo.sovereignweb.site/admin/
-- The agents that work on this site: https://pipeline-demo.sovereignweb.site/data/agents.json
-- The public keys of the agent that keeps it: https://pipeline-demo.sovereignweb.site/key.json
+- Use this site with AI: https://pipeline-demo.demo.sovereignweb.site/agents/
+- Start here (who looks after this site): https://pipeline-demo.demo.sovereignweb.site/start/
+- How this site was made: https://pipeline-demo.demo.sovereignweb.site/admin/
+- The agents that work on this site: https://pipeline-demo.demo.sovereignweb.site/data/agents.json
+- The public keys of the agent that keeps it: https://pipeline-demo.demo.sovereignweb.site/key.json
