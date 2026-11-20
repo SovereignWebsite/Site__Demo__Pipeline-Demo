@@ -40,6 +40,10 @@
 <h2>Assets</h2>
 <p>A site about a person or a project begins with a map of what exists: pictures, films, text, social posts. Each item is noted with where it is, who owns it and whether it may be used. Photographs belong to their photographers until they agree; anything not cleared stays out of the site.</p>
 
+<h2>Private sites</h2>
+<p>A private site has a public address and a holding page; the site itself is in an encrypted vault, opened with its QR code or link. The site's own agent seals the vault, and the QR code goes only to the person asking.</p>
+<p>The key is brought once. The first time the vault opens, the page makes a key pair in that browser for that address, with a private key that cannot be copied out, and keeps the vault's key only encrypted with it. On the next visit, and after a browser restart, the site opens without the QR code. "Forget on this device" removes both. A wrong key is never kept. Clearing the browser's site data, or a private window, means bringing the QR code again.</p>
+
 <h2>The rules every site keeps</h2>
 <ul>
 <li>Static files only: no server code, no cookies, no tracking.</li>
