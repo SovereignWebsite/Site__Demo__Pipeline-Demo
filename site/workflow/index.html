@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The workflow in one page, Pipeline demo</title>
+<meta name="description" content="From a request in plain words to a live site the owner holds: decisions, the Factory, agents, keys, policy, checks, design and the operator page, on one page.">
+<link rel="canonical" href="https://pipeline-demo.demo.sovereignweb.site/workflow/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pipeline demo">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://pipeline-demo.demo.sovereignweb.site/workflow/">
+<meta property="og:title" content="The workflow in one page, Pipeline demo">
+<meta property="og:description" content="From a request in plain words to a live site the owner holds: decisions, the Factory, agents, keys, policy, checks, design and the operator page, on one page.">
+<meta property="og:image" content="https://pipeline-demo.demo.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pipeline demo: How one request becomes a sovereign website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The workflow in one page, Pipeline demo">
+<meta name="twitter:description" content="From a request in plain words to a live site the owner holds: decisions, the Factory, agents, keys, policy, checks, design and the operator page, on one page.">
+<meta name="twitter:image" content="https://pipeline-demo.demo.sovereignweb.site/assets/share/card-1200x630.jpg">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul class="family-wide">
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+  <details class="family-narrow">
+    <summary>Sovereign Website family</summary>
+    <ul>
+      <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+      <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+      <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+      <li><a href="https://hub.sovereignweb.site/">Hub</a></li>
+      <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+      <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+      <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+      <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+      <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+    </ul>
+  </details>
+</nav>
+<header class="site-header"><div class="wrap"><a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="2" y="2" width="28" height="28" rx="7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 16.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Pipeline demo</a>
+<nav class="pages" aria-label="This guide"><a href="../index.html">How it works</a><a href="./" aria-current="page">The workflow</a><a href="../request.html">Asking for a site</a><a href="../after-the-seed.html">After the seed</a></nav></div></header>
+<main id="main" class="wrap">
+<p class="mark">pipeline-demo.demo.sovereignweb.site / workflow</p>
+<h1>The workflow in one page</h1>
+<p>How a Sovereign Website is made, from a sentence to a live site its owner holds. People decide; agents do the work, each with its own key; every step leaves a signed record you can read.</p>
+
+<h2>Nine steps</h2>
+<ol class="steps">
+<li><strong>Ask in plain words.</strong> The owner says what they want, in a chat with an agent: "we should have a site to help car buyers" is a whole request. The agent proposes a name, a group and an address, such as <code>car-buyer.tool.sovereignweb.site</code>.</li>
+<li><strong>Decide once, on the record.</strong> Every yes the owner gives goes through one decisions agent, which keeps one list of open questions with a recommendation for each. The owner's words are quoted exactly in a signed decision record, and each agent checks those words in the original session before it acts. A message is never a decision; only the signed record counts.</li>
+<li><strong>The Factory.</strong> One agent alone writes the Factory: a request file names the site. An hourly run creates the repository, the address, HTTPS and two branch rules (main is locked, dev is safe), and seeds the first files.</li>
+<li><strong>A keeper.</strong> Each site has an agent of its own. It builds in small commits to the dev branch, each signed with its own key. The keys are published in the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/team/keys.json">team/keys.json</a>, and a commit from a key that is not there is refused.</li>
+<li><strong>A policy on every site.</strong> The Agent Behaviour Policy says what each agent may and may not do, in plain words at <code>/policy/</code> on every site (<a href="../policy/">this one</a>). Anything not allowed is refused.</li>
+<li><strong>Checks before publishing.</strong> Every push runs the checks: links, writing style, a leak scan, HTML validity, accessibility, link previews and the policy. If one fails, nothing is published. If all pass, the site deploys and gets a version tag.</li>
+<li><strong>Design rounds.</strong> A design agent reviews each live site and sends improvements, round after round. Person and founder sites have five designs and a "Choose a design" control on every page.</li>
+<li><strong>The operator view.</strong> The owner reads progress on pages, not in long chats: the hub's <a href="https://hub.sovereignweb.site/operator/">operator page</a>, the <a href="https://hub.sovereignweb.site/building/">sites being built</a>, and the <a href="https://sites.agents.sovereignweb.site/register/">site register</a>.</li>
+<li><strong>The owner holds it.</strong> The site is static files in a repository. At handover the owner gets the repository, a start page and a prompt for their own Claude, and changes it themselves. Its files, history and address can move anywhere, at any time.</li>
+</ol>
+
+<h2>One request, as it happened</h2>
+<p>Car Buyer, a toolkit for buying a used car in the UK, on 23 November 2026 (UTC):</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Timeline"><table>
+<tr><th>When</th><th>What</th></tr>
+<tr><td>about 14:20</td><td>Dinis Cruz shares a briefing on buying a used car in the UK and asks for a site that helps any car buyer.</td></tr>
+<tr><td>about 14:25</td><td>sites.b proposes the toolkit, its address and what it will and will not do, and sends the request to the Factory.</td></tr>
+<tr><td>about 14:26</td><td>factory.b has the request file ready, signed, with its checks green, and routes it to the decisions agent.</td></tr>
+<tr><td>15:09</td><td>Dinis says yes in the decisions agent's session; it becomes a signed record.</td></tr>
+<tr><td>next</td><td>The record lands, the hourly run creates the repository, and sites.b builds the first version.</td></tr>
+</table></div>
+
+<h2>Want a site made this way?</h2>
+<p>Start with <a href="../request.html">asking for a site</a>, see what has been made on the <a href="https://hub.sovereignweb.site/">hub</a>, and read what a Sovereign Website is at <a href="https://sovereignwebsite.ai/">sovereignwebsite.ai</a>.</p>
+</main>
+<footer class="site-footer"><div class="wrap"><nav class="site-links" aria-label="About this site"><a href="../start/">Start here</a> <a href="../agents/">Use with your AI</a> <a href="../admin/">How this site was made</a> · <a href="/policy/">Agent policy</a></nav>
+<p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo">github.com/SovereignWebsite/Site__Demo__Pipeline-Demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
+</body>
+</html>
