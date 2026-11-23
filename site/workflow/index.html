@@ -24,6 +24,7 @@
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
+<style>.lede,.three,.table-wrap td{color:inherit}.three{padding-left:1.1rem}.three li{margin:.4rem 0}.steps details{margin:.35rem 0 .2rem}.steps summary{cursor:pointer;font-size:.92rem}.steps details p{margin:.3rem 0 0}.cta{margin:1.4rem 0}.button{display:inline-block;padding:.65rem 1.2rem;border-radius:999px;background:currentColor;text-decoration:none;font-weight:600}.button{background:#0b5cad;color:#fff}@media (prefers-color-scheme:dark){.button{background:#7ab8ff;color:#0d0f12}}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -59,34 +60,40 @@
 <main id="main" class="wrap">
 <p class="mark">pipeline-demo.demo.sovereignweb.site / workflow</p>
 <h1>The workflow in one page</h1>
-<p>How a Sovereign Website is made, from a sentence to a live site its owner holds. People decide; agents do the work, each with its own key; every step leaves a signed record you can read.</p>
-
+<p class="lede">How a Sovereign Website is made, from a sentence to a live site you own. People decide; agents do the work; every step leaves a record you can read.</p>
+<ul class="three">
+<li><strong>What you get:</strong> your own website, built by agents from your words and photos, with five designs to choose from, handed over to you.</li>
+<li><strong>What you do:</strong> say what you want, answer a few questions, and pick a design.</li>
+<li><strong>What it costs:</strong> launch offer £50 (or €50), paid once, no subscription, as published on <a href="https://sovereignwebsite.ai/pricing.html">sovereignwebsite.ai/pricing</a>. To change the site yourself later you need a Claude plan, or a partner.</li>
+</ul>
+<p class="cta"><a class="button" href="../request.html">Ask for a site</a></p>
 <h2>Nine steps</h2>
 <ol class="steps">
-<li><strong>Ask in plain words.</strong> The owner says what they want, in a chat with an agent: "we should have a site to help car buyers" is a whole request. The agent proposes a name, a group and an address, such as <code>car-buyer.tool.sovereignweb.site</code>.</li>
-<li><strong>Decide once, on the record.</strong> Every yes the owner gives goes through one decisions agent, which keeps one list of open questions with a recommendation for each. The owner's words are quoted exactly in a signed decision record, and each agent checks those words in the original session before it acts. A message is never a decision; only the signed record counts.</li>
-<li><strong>The Factory.</strong> One agent alone writes the Factory: a request file names the site. An hourly run creates the repository, the address, HTTPS and two branch rules (main is locked, dev is safe), and seeds the first files.</li>
-<li><strong>A keeper.</strong> Each site has an agent of its own. It builds in small commits to the dev branch, each signed with its own key. The keys are published in the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/team/keys.json">team/keys.json</a>, and a commit from a key that is not there is refused.</li>
-<li><strong>A policy on every site.</strong> The Agent Behaviour Policy says what each agent may and may not do, in plain words at <code>/policy/</code> on every site (<a href="../policy/">this one</a>). Anything not allowed is refused.</li>
-<li><strong>Checks before publishing.</strong> Every push runs the checks: links, writing style, a leak scan, HTML validity, accessibility, link previews and the policy. If one fails, nothing is published. If all pass, the site deploys and gets a version tag.</li>
-<li><strong>Design rounds.</strong> A design agent reviews each live site and sends improvements, round after round. Person and founder sites have five designs and a "Choose a design" control on every page.</li>
-<li><strong>The operator view.</strong> The owner reads progress on pages, not in long chats: the hub's <a href="https://hub.sovereignweb.site/operator/">operator page</a>, the <a href="https://hub.sovereignweb.site/building/">sites being built</a>, and the <a href="https://sites.agents.sovereignweb.site/register/">site register</a>.</li>
-<li><strong>The owner holds it.</strong> The site is static files in a repository. At handover the owner gets the repository, a start page and a prompt for their own Claude, and changes it themselves. Its files, history and address can move anywhere, at any time.</li>
+<li><strong>Ask in plain words.</strong> You say what you want, in your own words, to an agent. That is the whole request.<details><summary>How, in detail</summary><p>Example: "we should have a site to help car buyers". The agent proposes a name, a group and an address, such as <code>car-buyer.tool.sovereignweb.site</code>.</p></details></li>
+<li><strong>Say yes once.</strong> Every question that needs you comes to one place, with a recommendation, and you answer once.<details><summary>How, in detail</summary><p>A decisions agent keeps the list. Your words are quoted exactly in a signed decision record, and each agent checks them in the original conversation before it acts. A message alone is never a decision.</p></details></li>
+<li><strong>The site is created.</strong> Within the hour, the site has its own address, a secure connection and a first page.<details><summary>How, in detail</summary><p>One agent writes a request file in the Factory. An hourly run creates the repository, the address, HTTPS and two branch rules (the published branch is locked), and adds the first files. For this site, the repository existed 43 seconds after the request landed.</p></details></li>
+<li><strong>An agent builds it.</strong> A named agent writes the site, and you can see who changed what, and when.<details><summary>How, in detail</summary><p>Each change is a commit signed with the agent's own key. The keys are published in the Factory's <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/team/keys.json">team/keys.json</a>, and a change signed by any other key is refused.</p></details></li>
+<li><strong>Rules you can read.</strong> Every site says in plain words what its agents may and may not do.<details><summary>How, in detail</summary><p>The Agent Behaviour Policy is at <code>/policy/</code> on every site (<a href="../policy/">this one</a>). Anything it does not allow is refused.</p></details></li>
+<li><strong>Checked before it goes live.</strong> Nothing is published until it passes the checks.<details><summary>How, in detail</summary><p>Every change runs: links, writing style, a leak scan, HTML validity, accessibility, link previews and the policy. If one fails, nothing changes on the live site; if all pass, it deploys with a version number.</p></details></li>
+<li><strong>Design, round after round.</strong> A design agent reviews the live site and improves it, and you choose between five designs.<details><summary>How, in detail</summary><p>Each round asks real questions, such as "would you want one?", and ranks fixes. Person and founder sites carry a "Choose a design" control on every page.</p></details></li>
+<li><strong>You watch progress on pages.</strong> You read what is done and what waits on you on a page, not in a long chat.<details><summary>How, in detail</summary><p>The hub's <a href="https://hub.sovereignweb.site/operator/">operator page</a>, the <a href="https://hub.sovereignweb.site/building/">sites being built</a> and the <a href="https://sites.agents.sovereignweb.site/register/">site register</a>.</p></details></li>
+<li><strong>It is yours.</strong> At handover the site is yours to keep, change and move.<details><summary>How, in detail</summary><p>You get the repository, a start page and a prompt for your own Claude. From then on you change the site by asking your Claude in plain words; see how on a real owner's site: <a href="https://kate-curtis-evans.founder.sovereignweb.site/agents/">kate-curtis-evans.founder.sovereignweb.site/agents/</a>. The files, history and address can move anywhere, at any time.</p></details></li>
 </ol>
 
 <h2>One request, as it happened</h2>
-<p>Car Buyer, a toolkit for buying a used car in the UK, on 23 November 2026 (UTC):</p>
+<p>Car Buyer, a toolkit for buying a used car in the UK, on 23 November 2026 (UTC). The story is still being written; the last rows go here when it is live.</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Timeline"><table>
 <tr><th>When</th><th>What</th></tr>
 <tr><td>about 14:20</td><td>Dinis Cruz shares a briefing on buying a used car in the UK and asks for a site that helps any car buyer.</td></tr>
 <tr><td>about 14:25</td><td>sites.b proposes the toolkit, its address and what it will and will not do, and sends the request to the Factory.</td></tr>
-<tr><td>about 14:26</td><td>factory.b has the request file ready, signed, with its checks green, and routes it to the decisions agent.</td></tr>
-<tr><td>15:09</td><td>Dinis says yes in the decisions agent's session; it becomes a signed record.</td></tr>
-<tr><td>next</td><td>The record lands, the hourly run creates the repository, and sites.b builds the first version.</td></tr>
+<tr><td>about 14:26</td><td>factory.b has the request file ready, signed, with its checks passed, and sends it to the decisions agent.</td></tr>
+<tr><td>15:09</td><td>Dinis says yes in the decisions agent's conversation; it becomes a signed record.</td></tr>
+<tr><td>next</td><td>The site is created and its agent builds the first version.</td></tr>
 </table></div>
 
 <h2>Want a site made this way?</h2>
-<p>Start with <a href="../request.html">asking for a site</a>, see what has been made on the <a href="https://hub.sovereignweb.site/">hub</a>, and read what a Sovereign Website is at <a href="https://sovereignwebsite.ai/">sovereignwebsite.ai</a>.</p>
+<p>See what has been made on the <a href="https://hub.sovereignweb.site/">hub</a>, or read what a Sovereign Website is at <a href="https://sovereignwebsite.ai/">sovereignwebsite.ai</a>.</p>
+<p class="cta"><a class="button" href="../request.html">Ask for a site</a></p>
 </main>
 <footer class="site-footer"><div class="wrap"><nav class="site-links" aria-label="About this site"><a href="../start/">Start here</a> <a href="../agents/">Use with your AI</a> <a href="../admin/">How this site was made</a> · <a href="/policy/">Agent policy</a></nav>
 <p>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo">github.com/SovereignWebsite/Site__Demo__Pipeline-Demo</a>. Text licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. No cookies, no tracking.</p></div></footer>
